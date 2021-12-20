@@ -50,7 +50,20 @@ export const Gallery = () => {
         gap: "20px",
       }}
     >
-      <PGallery>
+      <PGallery
+        options={{
+          bgOpacity: "0.75",
+          mainClass: "photoswipe-custom-main",
+          shareButtons: [
+            {
+              id: "download",
+              label: "Download",
+              download: true,
+              url: "{{raw_image_url}}",
+            },
+          ],
+        }}
+      >
         {cols.map((row) => (
           <div
             style={{
