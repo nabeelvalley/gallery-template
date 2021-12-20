@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "gallery-template",
+    title: "My Gallery",
+    author: "Nabeel Valley",
   },
   plugins: [
     "gatsby-plugin-image",
