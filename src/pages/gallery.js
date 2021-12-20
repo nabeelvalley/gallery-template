@@ -1,7 +1,12 @@
+import "photoswipe/dist/photoswipe.css";
+import "photoswipe/dist/default-skin/default-skin.css";
+
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { useWindowSize } from "./useWindowSize";
+
+import { Gallery as PGallery, Item as PItem } from "react-photoswipe-gallery";
 
 export const Gallery = () => {
   const { width } = useWindowSize();
@@ -17,6 +22,8 @@ export const Gallery = () => {
           node {
             fluid(maxWidth: 2400) {
               aspectRatio
+              presentationHeight
+              presentationWidth
               ...GatsbyImageSharpFluid
             }
           }
@@ -43,27 +50,44 @@ export const Gallery = () => {
         gap: "20px",
       }}
     >
-      {cols.map((row) => (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(6, 1fr)",
-            gap: "20px",
-            marginBottom: "auto",
-          }}
-        >
-          {row.map((image) => (
-            <div
-              style={{
-                gridColumn: "span 6",
-                gridRow: image.aspectRatio > 1 ? "span 8" : "span 4",
-              }}
-            >
-              <Img fluid={image} />
-            </div>
-          ))}
-        </div>
-      ))}
+      <PGallery>
+        {cols.map((row) => (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(6, 1fr)",
+              gap: "20px",
+              marginBottom: "auto",
+            }}
+          >
+            {row.map((image) => (
+              <div
+                style={{
+                  gridColumn: "span 6",
+                  gridRow: image.aspectRatio > 1 ? "span 8" : "span 4",
+                }}
+              >
+                <PItem
+                  original={image.src}
+                  height={image.presentationHeight}
+                  widht={image.presentationWidth}
+                >
+                  {({ ref, open }) => (
+                    <div ref={ref} onClick={open}>
+                      <Img
+                        src={image.src}
+                        ref={ref}
+                        onClick={open}
+                        fluid={image}
+                      />
+                    </div>
+                  )}
+                </PItem>
+              </div>
+            ))}
+          </div>
+        ))}
+      </PGallery>
     </div>
   );
 };
