@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
+* {
+  font-family: Lato;
+  margin: 0;
+}
+
+.expand {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.expand:hover {
+  transform: scale(1.01);
+}
+
+.button {
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 30px;
+  background-color: #0000000d;
+  color: #0e0e10;
+  padding: 0 20px;
+}
+
+.button:hover {
+  transform: scale(1.01);
+}

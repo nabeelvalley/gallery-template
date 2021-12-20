@@ -1,11 +1,9 @@
+const siteMetadata = require("./siteMetadata.json");
+
 module.exports = {
-  siteMetadata: {
-    title: "My Gallery",
-    author: "Nabeel Valley",
-  },
+  siteMetadata,
   plugins: [
     "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {

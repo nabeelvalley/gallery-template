@@ -14,7 +14,7 @@ export const Gallery = () => {
   const count = width > 1200 ? 3 : width > 900 ? 2 : 1;
 
   const data = useStaticQuery(graphql`
-    query AllImages {
+    query {
       allImageSharp(
         filter: { original: { src: { glob: "**/*.{png,jpg,jpeg}" } } }
       ) {
@@ -75,6 +75,7 @@ export const Gallery = () => {
           >
             {row.map((image) => (
               <div
+                className="expand"
                 style={{
                   gridColumn: "span 6",
                   gridRow: image.aspectRatio > 1 ? "span 8" : "span 4",
