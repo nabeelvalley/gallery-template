@@ -66,20 +66,16 @@ export const Gallery = () => {
                   gridColumn: "span 6",
                   gridRow: image.aspectRatio > 1 ? "span 8" : "span 4",
                 }}
+                key={image.src}
               >
                 <PItem
                   original={image.src}
                   height={image.presentationHeight}
-                  widht={image.presentationWidth}
+                  width={image.presentationWidth}
                 >
                   {({ ref, open }) => (
-                    <div ref={ref} onClick={open}>
-                      <Img
-                        src={image.src}
-                        ref={ref}
-                        onClick={open}
-                        fluid={image}
-                      />
+                    <div onClick={open} ref={ref}>
+                      <Img src={image.src} fluid={image} />
                     </div>
                   )}
                 </PItem>
