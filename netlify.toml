@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[[redirects]]
+  from = "https://gallery-template-demo.netlify.app/*"
+  to = "https://gallery-template-demo.nabeelvalley.co.za/:splat"
+  status = 301
+
