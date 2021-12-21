@@ -6,4 +6,5 @@
   from = "https://gallery-template-demo.netlify.app/*"
   to = "https://gallery-template-demo.nabeelvalley.co.za/:splat"
   status = 301
+  force = true
 
